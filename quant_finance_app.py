@@ -22,14 +22,14 @@ def simulate_paths(S0, r, sigma, T, steps, n_simulations):
   paths = np.zeros((n_simulations,steps))
 
   for i in range(n_simulations):
-    prices = [S0]
+    
     for t in range(1,steps):
       Z = np.random.normal()
       S_t = prices[-1] * np.exp((r - 0.5 * sigma**2)
       * dt + sigma * np.sqrt(dt) * Z )
-      prices.append(S_t)
+      
 
-      paths[i] = prices
+      
   return paths
 
   #

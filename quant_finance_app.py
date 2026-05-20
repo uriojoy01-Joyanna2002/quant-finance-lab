@@ -15,22 +15,30 @@ import matplotlib.pyplot as plt
 # Montecarlo simulation Function
 #
 def simulate_paths(S0, r, sigma, T, steps, n_simulations):
-  steps = int(steps)
-  n_simulations = int(n_simulations)  
-    
-  dt=T/steps
-  paths = np.zeros((n_simulations,steps))
 
-  for i in range(n_simulations):
-    
-    for t in range(1,steps):
-      Z = np.random.normal()
-      S_t = prices[-1] * np.exp((r - 0.5 * sigma**2)
-      * dt + sigma * np.sqrt(dt) * Z )
-      
+    steps = int(steps)
+    n_simulations = int(n_simulations)
 
-      
-  return paths
+    dt = T / steps
+
+    paths = np.zeros((n_simulations, steps))
+
+    for i in range(n_simulations):
+
+        # Initial stock price
+        paths[i, 0] = S0
+
+        # Simulate path
+        for t in range(1, steps):
+
+            Z = np.random.normal()
+
+            paths[i, t] = paths[i, t-1] * np.exp(
+                (r - 0.5 * sigma**2) * dt
+                + sigma * np.sqrt(dt) * Z
+            )
+
+    return paths
 
   #
   # Asian Option Pricing

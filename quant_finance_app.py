@@ -16,6 +16,8 @@ import matplotlib.pyplot as plt
 #
 def simulate_paths(S0, r, sigma, T, steps, n_simulations):
   steps = int(steps)
+  n_simulations = int(n_simulations)  
+    
   dt=T/steps
   paths = np.zeros((n_simulations,steps))
 

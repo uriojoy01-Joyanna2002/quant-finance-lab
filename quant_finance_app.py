@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 # Montecarlo simulation Function
 #
 def simulate_paths(S0, r, sigma, T, steps, n_simulations):
+  steps = int(steps)
   dt=T/steps
   paths = np.zeros((n_simulations,steps))
 

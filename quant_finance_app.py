@@ -34,7 +34,7 @@ def simulate_paths(S0, r, sigma, T, steps, n_simulations):
   #
 
 def asian_option_price(S0, K, r, sigma, T, steps, n_simulations):
-    paths=simulate_paths(S0, K, r, sigma, T, steps, n_simulations)
+    paths=simulate_paths(S0, r, sigma, T, steps, n_simulations)
 
     avg_prices= np.mean(paths, axis=1)
     payoffs= np.maximum(avg_prices - K,0)
